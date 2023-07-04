@@ -17,6 +17,19 @@ fun main() {
 
 }
 
+/* -------------------------------- */
+// API Weather
+/* -------------------------------- */
+
+data class WeatherBean(var main : TempBean, var wind : WindBean, var name : String, var toto:String)
+data class TempBean(var temp : Double)
+data class WindBean(var speed : Double)
+
+
+/* -------------------------------- */
+// Exo
+/* -------------------------------- */
+
 class PlaneBean(name: String){
     var id = name.hashCode()
 
