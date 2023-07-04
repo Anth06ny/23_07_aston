@@ -9,9 +9,10 @@ object RequestUtils {
     val gson = Gson()
 
     fun loadWeather(city: String): WeatherBean {
+
         var json = sendGet("https://api.openweathermap.org/data/2.5/weather?q=$city&appid=b80967f0a6bd10d23e44848547b26550&units=metric&lang=fr")
 
-        val data : WeatherBean = gson.fromJson(json, WeatherBean::class.java)
+        val data  = gson.fromJson(json, WeatherBean::class.java)
 
         return data
     }

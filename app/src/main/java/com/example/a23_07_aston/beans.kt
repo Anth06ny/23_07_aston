@@ -18,6 +18,17 @@ fun main() {
 }
 
 /* -------------------------------- */
+// Mexicanfood
+/* -------------------------------- */
+
+data class MexicanFoodBean(
+    val difficulty: String,
+    val id: String,
+    val image: String,
+    val title: String
+)
+
+/* -------------------------------- */
 // API Weather
 /* -------------------------------- */
 
