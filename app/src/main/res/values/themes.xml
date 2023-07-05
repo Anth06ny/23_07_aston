@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.23_07_aston" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.23_07_aston" parent="Theme.Material3.DayNight">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/purple</item>
     </style>
 
     <style name="Theme.23_07_aston" parent="Base.Theme.23_07_aston" />

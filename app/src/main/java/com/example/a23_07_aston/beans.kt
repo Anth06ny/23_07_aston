@@ -1,10 +1,11 @@
 package com.example.a23_07_aston
 
+import com.google.gson.annotations.SerializedName
 import java.util.Random
 
 fun main() {
 
-   var house = HouseBean(10, 20, "bleu")
+    var house = HouseBean(10, 20, "bleu")
 //    house.print()
     house.area = 18
 //    var randomPrint = PrintRandomIntBean()
@@ -28,20 +29,43 @@ data class MexicanFoodBean(
     val title: String
 )
 
+data class MexicanFoodDetailBean(
+    val description: String,
+    val difficulty: String,
+    val id: String,
+    val image: String,
+    val ingredients: List<String>,
+    val method: List<Method>,
+    val portion: String,
+    val time: String,
+    val title: String
+)
+
+data class Method(
+    @SerializedName("Step 1")
+    val step1: String,
+    @SerializedName("Step 2")
+    val step2: String?,
+    @SerializedName("Step 3")
+    val step3: String?,
+    @SerializedName("Step 4")
+    val step4: String?,
+    )
+
 /* -------------------------------- */
 // API Weather
 /* -------------------------------- */
 
-data class WeatherBean(var main : TempBean, var wind : WindBean, var name : String, var toto:String)
-data class TempBean(var temp : Double)
-data class WindBean(var speed : Double)
+data class WeatherBean(var main: TempBean, var wind: WindBean, var name: String, var toto: String)
+data class TempBean(var temp: Double)
+data class WindBean(var speed: Double)
 
 
 /* -------------------------------- */
 // Exo
 /* -------------------------------- */
 
-class PlaneBean(name: String){
+class PlaneBean(name: String) {
     var id = name.hashCode()
 
     var name = name
@@ -52,7 +76,7 @@ class PlaneBean(name: String){
 
 }
 
-class PrintRandomIntBean(var max : Int) {
+class PrintRandomIntBean(var max: Int) {
     private val random = Random()
 
     init {
@@ -68,7 +92,7 @@ class PrintRandomIntBean(var max : Int) {
     }
 }
 
-class HouseBean( width : Int,  length : Int, var color : String ){
+class HouseBean(width: Int, length: Int, var color: String) {
     var area = width * length
 
     fun print() = println("La maison $color fait ${area}m²")
