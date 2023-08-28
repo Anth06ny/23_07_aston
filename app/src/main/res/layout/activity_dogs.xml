@@ -86,4 +86,16 @@
             android:src="@drawable/baseline_assist_walker_24"
             />
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btLoad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Load random dog" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 </LinearLayout>
