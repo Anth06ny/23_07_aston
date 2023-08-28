@@ -43,9 +43,10 @@ data class Method(
 // API Weather
 /* -------------------------------- */
 
-data class WeatherBean(var main: TempBean, var wind: WindBean, var name: String, var toto: String)
+data class WeatherBean(var main: TempBean, var wind: WindBean, var name: String, var weather:List<DescriptionBean>)
 data class TempBean(var temp: Double)
 data class WindBean(var speed: Double)
+data class DescriptionBean(var icon: String, var description: String)
 
 
 /* -------------------------------- */
