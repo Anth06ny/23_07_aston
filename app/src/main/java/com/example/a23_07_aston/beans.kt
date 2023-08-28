@@ -3,20 +3,7 @@ package com.example.a23_07_aston
 import com.google.gson.annotations.SerializedName
 import java.util.Random
 
-fun main() {
 
-    var house = HouseBean(10, 20, "bleu")
-//    house.print()
-    house.area = 18
-//    var randomPrint = PrintRandomIntBean()
-//    randomPrint.max = 18
-
-    val plane = PlaneBean("Toto")
-    println("${plane.name} : ${plane.id}")
-    plane.name = "bob"
-    println("${plane.name} : ${plane.id}")
-
-}
 
 /* -------------------------------- */
 // Mexicanfood
@@ -100,4 +87,9 @@ class HouseBean(width: Int, length: Int, var color: String) {
 
 data class CarBean(var marque: String, var model: String?) {
     var color = ""
+}
+
+fun main() {
+    var car = CarBean("seat", "leon")
+
 }

@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         println("MainActivity.onCreate")
 
-
         //callback du clic sur le bouton
         binding.btValidate.setOnClickListener {
             if(binding.rbLike.isChecked) {
@@ -41,17 +40,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     //Callback création du menu
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menu.add(0,1,0,"Météo")
+        menu.add(0,17,0,"Météo")
+        menu.add(0,18,0,"Dogs")
         return super.onCreateOptionsMenu(menu)
     }
 
     //callback click sur le menu
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == 1) {
+        if(item.itemId == 17) {
             //Lancer le workflow du changement d'écran
             startActivity(Intent(this, WeatherActivity::class.java))
+        }
+        if(item.itemId == 18) {
+            //Lancer le workflow du changement d'écran
+            startActivity(Intent(this, DogsActivity::class.java))
         }
         return super.onOptionsItemSelected(item)
     }

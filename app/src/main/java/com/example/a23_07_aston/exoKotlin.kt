@@ -4,6 +4,8 @@ import kotlin.concurrent.thread
 
 
 fun main()  {
+
+
     var total = boulangerie(3, nbB = 2)
     println("total=$total")
 }
