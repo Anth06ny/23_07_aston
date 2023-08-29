@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:animateLayoutChanges="true"
     tools:context=".WeatherActivity">
 
     <EditText
@@ -15,6 +16,18 @@
         android:ems="10"
         android:inputType="text"
         android:text="Toulouse" />
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="#FF0000"
+        android:padding="5dp"
+        android:text="Erreur"
+        android:textColor="#FFFFFF"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/tvTexte"
