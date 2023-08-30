@@ -1,11 +1,15 @@
 package com.example.a23_07_aston
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.example.a23_07_aston.RequestUtils.loadWeather
 import com.example.a23_07_aston.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -45,6 +49,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menu.add(0,17,0,"Météo")
         menu.add(0,18,0,"Dogs")
+        menu.add(0,19,0,"Notif now")
+        menu.add(0,20,0,"Notif 8s")
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -58,6 +64,36 @@ class MainActivity : AppCompatActivity() {
             //Lancer le workflow du changement d'écran
             startActivity(Intent(this, DogsActivity::class.java))
         }
+        else if(item.itemId == 19) {
+            //Notif immédiate
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
+                == PackageManager.PERMISSION_GRANTED
+            ) {
+                //On a la permission
+                NotificationUtils.createInstantNotification(this, "Coucou")
+            } else {
+                println("Je la demande")
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 0
+                )
+            }
+        }
+        else if(item.itemId == 20) {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
+                == PackageManager.PERMISSION_GRANTED
+            ) {
+                //On a la permission
+                NotificationUtils.scheduleNotification(this, "Coucou", 7000)
+            } else {
+                println("Je la demande")
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 0
+                )
+            }
+        }
+
         return super.onOptionsItemSelected(item)
     }
 
