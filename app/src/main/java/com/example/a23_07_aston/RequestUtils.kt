@@ -4,13 +4,28 @@ import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.Request
 
+fun main() {
+    val data = RequestUtils.loadWeather(43.568705, 1.489464)
+    println(data)
+}
+
 object RequestUtils {
+
     val client = OkHttpClient()
     val gson = Gson()
 
     fun loadWeather(city: String): WeatherBean {
 
         var json = sendGet("https://api.openweathermap.org/data/2.5/weather?q=$city&appid=b80967f0a6bd10d23e44848547b26550&units=metric&lang=fr")
+
+        val data  = gson.fromJson(json, WeatherBean::class.java)
+
+        return data
+    }
+
+    fun loadWeather(latitude:Double, longitude:Double): WeatherBean {
+
+        var json = sendGet("https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=b80967f0a6bd10d23e44848547b26550&units=metric&lang=fr")
 
         val data  = gson.fromJson(json, WeatherBean::class.java)
 
